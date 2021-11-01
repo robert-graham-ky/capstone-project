@@ -43,7 +43,7 @@ export default class MenuForm extends Component {
          "image": "prototype"};
          //tempId is a temporary, slow, and lazy way to track which url to use for the api
          axios
-            .get("https://calm-ocean-51388.herokuapp.com/items")
+            .get("https://rtg-flask-api.herokuapp.com/items")
             .then(response => {
                 const tempId = response.data.length;//this is wrong
                 const myUrl = this.state.apiUrl+tempId;
