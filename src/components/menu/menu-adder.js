@@ -11,7 +11,7 @@ export default class MenuForm extends Component {
         name: "",
         description: "",
         price: "",
-        apiUrl: ("http://rtg-flask-api.herokuapp.com/item/"),
+        apiUrl: ("https://rtg-flask-api.herokuapp.com/item/"),
         apiAction: "put"
       };
   
