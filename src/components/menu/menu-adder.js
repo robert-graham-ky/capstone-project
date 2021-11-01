@@ -11,7 +11,7 @@ export default class MenuForm extends Component {
         name: "",
         description: "",
         price: "",
-        apiUrl: ("https://rtg-flask-api.herokuapp.com/item/"),
+        apiUrl: ("https://rtg-flask-api.herokuapp.com/items"),
         apiAction: "put"
       };
   
@@ -49,7 +49,7 @@ export default class MenuForm extends Component {
                 const myUrl = this.state.apiUrl+tempId;
                 axios
                     .put(
-                        myUrl, payload
+                      "https://rtg-flask-api.herokuapp.com/items", payload
                     )
                     .then(response => {
                         this.setState({

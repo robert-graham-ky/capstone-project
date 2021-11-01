@@ -4,7 +4,8 @@ module.exports = {
     secure: true,
     headers: {
       'Host': 'api.github.com',
-      'Cookie': '' // send cookie on demand
+      'Cookie': '', // send cookie on demand
+      'Access-Control-Allow-Origin': 'https://rtg-flask-api.herokuapp.com/'
     },
     pathRewrite: function (path) {
       return path.replace(/^\/node-0/, ''); // remove '/node-0' prefix when requesting
