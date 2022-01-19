@@ -11,14 +11,44 @@ export default class MenuForm extends Component {
         name: "",
         description: "",
         price: "",
+        image: "",
         apiUrl: ("https://rtg-flask-api.herokuapp.com/items"),
         apiAction: "put"
       };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.componentConfig = this.componentConfig.bind(this);
+      this.djsConfig = this.djsConfig.bind(this);
+      this.handleImageDrop = this.handleImageDrop.bind(this);
+      
+      //this.deleteImage = this.deleteImage.bind(this);
+
+      this.imageRef = React.createRef();
     }
   
+
+    componentConfig() {
+      return {
+        iconFiletypes: [".jpg", ".png"],
+        showFiletypeIcon: true,
+        postUrl: "https://httpbin.org/post"
+      };
+    }
+
+    handleImageDrop() {
+      return {
+      
+        addedfile: file => 
+        //select the file path
+        //use img to base64 with the file path as parameter
+        //put the string in the state
+        //it gets uploaded to the api
+        //later I'll pull that string and convert from base64 to image
+        this.setState({image: theImg})
+      };
+    }
+
     djsConfig() {
       return {
         addRemoveLinks: true,
@@ -40,12 +70,11 @@ export default class MenuForm extends Component {
          "description": this.state.description, 
          "price": this.state.price,
          "descripción": "prototype",
-         "image": "prototype"};
-         //tempId is a temporary, slow, and lazy way to track which url to use for the api
+         "image": this.state.image};
          axios
             .get("https://rtg-flask-api.herokuapp.com/items")
             .then(response => {
-                const tempId = response.data.length;//this is wrong
+                const tempId = response.data.length;
                 const myUrl = this.state.apiUrl+tempId;
                 axios
                     .put(
@@ -98,7 +127,17 @@ export default class MenuForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-  
+
+          <div className="one-column">
+            <input
+              type="text"
+              name="Image URL"
+              placeholder="Image URL"
+              value={this.state.image}
+              onChange={this.handleChange}
+            />
+          </div>
+
           <div>
             <button className="btn" type="submit">
               Save

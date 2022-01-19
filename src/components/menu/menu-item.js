@@ -31,8 +31,14 @@ export default class MenuItem extends Component {
             <div className="description">
                 {description}
             </div>
-            <div price="price">
+            <div className="price">
                 {price}
+            </div>
+            <div className="image">
+              <img 
+                src={image}
+                alt="thing"
+              />
             </div>
         </div>
     );
