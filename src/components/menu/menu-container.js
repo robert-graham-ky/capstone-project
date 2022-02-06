@@ -16,7 +16,7 @@ export default class MenuContainer extends Component {
     }
 
     getMenuItems(){
-        axios.get("https://rtg-flask-api.herokuapp.com/items")
+        axios.get("https://robertgrahamky.pythonanywhere.com/items")
             .then(response => {
                 this.setState({
                     data: response.data

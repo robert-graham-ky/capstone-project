@@ -12,7 +12,7 @@ export default class MenuForm extends Component {
         description: "",
         price: "",
         image: "",
-        apiUrl: ("https://rtg-flask-api.herokuapp.com/items"),
+        apiUrl: ("https://robertgrahamky.pythonanywhere.com/item/"),
         apiAction: "put"
       };
   
@@ -20,11 +20,11 @@ export default class MenuForm extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.componentConfig = this.componentConfig.bind(this);
       this.djsConfig = this.djsConfig.bind(this);
-      this.handleImageDrop = this.handleImageDrop.bind(this);
+     // this.handleImageDrop = this.handleImageDrop.bind(this);
       
       //this.deleteImage = this.deleteImage.bind(this);
 
-      this.imageRef = React.createRef();
+     // this.imageRef = React.createRef();
     }
   
 
@@ -36,7 +36,7 @@ export default class MenuForm extends Component {
       };
     }
 
-    handleImageDrop() {
+    /*handleImageDrop() {
       return {
       
         addedfile: file => 
@@ -47,7 +47,7 @@ export default class MenuForm extends Component {
         //later I'll pull that string and convert from base64 to image
         this.setState({image: theImg})
       };
-    }
+    }*/
 
     djsConfig() {
       return {
@@ -72,19 +72,20 @@ export default class MenuForm extends Component {
          "descripción": "prototype",
          "image": this.state.image};
          axios
-            .get("https://rtg-flask-api.herokuapp.com/items")
+            .get("https://robertgrahamky.pythonanywhere.com/items")
             .then(response => {
                 const tempId = response.data.length;
                 const myUrl = this.state.apiUrl+tempId;
                 axios
                     .put(
-                      "https://rtg-flask-api.herokuapp.com/items", payload
+                      /*"https://rtg-flask-api.herokuapp.com/item/"*/ myUrl, payload
                     )
                     .then(response => {
                         this.setState({
                           name: "",
                           description: "",
-                          price: ""
+                          price: "",
+                          image: ""
                         });
                     })
                     .catch(error => {
@@ -131,7 +132,7 @@ export default class MenuForm extends Component {
           <div className="one-column">
             <input
               type="text"
-              name="Image URL"
+              name="image"
               placeholder="Image URL"
               value={this.state.image}
               onChange={this.handleChange}
