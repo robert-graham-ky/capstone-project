@@ -31,6 +31,11 @@
             background-color: whitesmoke;
             font-size: 1.5rem;
             font-weight: 900;
+            .words-wrapper{
+                display: flex;
+                flex-direction: column;
+                align-items: top;
+            }
             .image{
                 width: 200px;
                 height: 200px;

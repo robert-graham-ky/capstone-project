@@ -25,14 +25,16 @@ export default class MenuItem extends Component {
         onMouseEnter={() => this.handleMouseEnter()}
         onMouseLeave={() => this.handleMouseLeave()}
         >
-            <div className="item-name">
-                {name}
-            </div>
-            <div className="description">
-                {description}
-            </div>
-            <div className="price">
-                {price}
+            <div className="words-wrapper">
+                <div className="item-name">
+                    {name}
+                </div>
+                <div className="description">
+                    {description}
+                </div>
+                <div className="price">
+                    {price}
+                </div>
             </div>
             <div className="image">
               <img 
