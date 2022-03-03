@@ -34,7 +34,8 @@
             .words-wrapper{
                 display: flex;
                 flex-direction: column;
-                align-items: top;
+                align-items: center;
+                margin-left: 20px;
             }
             .image{
                 width: 200px;
@@ -43,6 +44,9 @@
                     width: 200px;
                     height: 200px;
                 }
+            }
+            .hovered-over{
+                color: orange;
             }
         }
     }

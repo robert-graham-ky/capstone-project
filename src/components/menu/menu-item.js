@@ -10,18 +10,19 @@ export default class MenuItem extends Component {
   }
 
   handleMouseEnter() {
-    this.setState({ menuItemClass: "image-blur" });
+    this.setState({ menuItemClass: "hovered-over" });
   }
 
   handleMouseLeave() {
     this.setState({ menuItemClass: "" });
   }
 
+
   render() {
-    const { id, description, name, descripción, price, image } = this.props.item;
+    const { id, description, name, descripción, price, image, calories } = this.props.item;
     return (
         <div
-        className="item-wrapper"
+        className={`item-wrapper ${this.state.menuItemClass}`}
         onMouseEnter={() => this.handleMouseEnter()}
         onMouseLeave={() => this.handleMouseLeave()}
         >
@@ -29,12 +30,16 @@ export default class MenuItem extends Component {
                 <div className="item-name">
                     {name}
                 </div>
-                <div className="description">
-                    {description}
-                </div>
                 <div className="price">
                     {price}
                 </div>
+                <div className="calories">
+                    {calories}
+                </div>
+                <div className="description">
+                    {description}
+                </div>
+                
             </div>
             <div className="image">
               <img 

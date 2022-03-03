@@ -12,6 +12,7 @@ export default class MenuForm extends Component {
         description: "",
         price: "",
         image: "",
+        calories: "",
         apiUrl: ("https://robertgrahamky.pythonanywhere.com/item/"),
         apiAction: "put"
       };
@@ -70,7 +71,8 @@ export default class MenuForm extends Component {
          "description": this.state.description, 
          "price": this.state.price,
          "descripción": "prototype",
-         "image": this.state.image};
+         "image": this.state.image,
+         "calories": this.state.calories};
          axios
             .get("https://robertgrahamky.pythonanywhere.com/items")
             .then(response => {
@@ -115,6 +117,15 @@ export default class MenuForm extends Component {
               name="price"
               placeholder="price"
               value={this.state.price}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="one-column">
+            <input
+              type="text"
+              name="calories"
+              placeholder="Calories"
+              value={this.state.calories}
               onChange={this.handleChange}
             />
           </div>
