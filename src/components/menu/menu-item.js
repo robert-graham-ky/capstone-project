@@ -31,10 +31,10 @@ export default class MenuItem extends Component {
                     {name}
                 </div>
                 <div className="price">
-                    {price}
+                    <h1>${price}</h1>
                 </div>
                 <div className="calories">
-                    {calories}
+                    <h1>Calories: {calories}</h1>
                 </div>
                 <div className="description">
                     {description}
@@ -42,6 +42,9 @@ export default class MenuItem extends Component {
                 
             </div>
             <div className="image">
+              <div className="item-name">
+                {name}
+              </div>
               <img 
                 src={image}
                 alt="thing"

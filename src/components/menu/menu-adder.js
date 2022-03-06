@@ -87,7 +87,8 @@ export default class MenuForm extends Component {
                           name: "",
                           description: "",
                           price: "",
-                          image: ""
+                          image: "",
+                          calories: ""
                         });
                     })
                     .catch(error => {
