@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class MenuItem extends Component {
   constructor(props) {
     super(props);
-    
+
   }
 
   render() {
@@ -12,6 +12,7 @@ export default class MenuItem extends Component {
         <div
         className={"item-wrapper"}
         >
+          <div className="item-wrapper-content">
             <div className="words-wrapper">
                 <div className="item-name">
                     {name}
@@ -36,6 +37,7 @@ export default class MenuItem extends Component {
                 alt="thing"
               />
             </div>
+          </div>
         </div>
     );
   }
