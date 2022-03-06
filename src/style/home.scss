@@ -33,11 +33,25 @@
             font-weight: 900;
             position: relative;
             text-align: center;
-            .words-wrapper{
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+
+            .item-wrapper:hover{
+                transform: rotateY(180deg);
+            }
+            .words-wrapper, .image{
+                width: 100%;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 align-items: center;
+                position: absolute;
+                backface-visibility: hidden;
+            }
+            .words-wrapper{
                 margin-left: 20px;
+                transform: rotateY(180deg);
             }
             .image{
                 width: 200px;
@@ -46,9 +60,6 @@
                     width: 200px;
                     height: 200px;
                 }
-            }
-            &.hovered-over{
-                color: orange;
             }
         }
     }

@@ -3,28 +3,14 @@ import React, { Component } from "react";
 export default class MenuItem extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      menuItemClass: ""
-    };
+    
   }
-
-  handleMouseEnter() {
-    this.setState({ menuItemClass: ".hovered-over" });
-  }
-
-  handleMouseLeave() {
-    this.setState({ menuItemClass: "" });
-  }
-
 
   render() {
     const { id, description, name, descripción, price, image, calories } = this.props.item;
     return (
         <div
-        className={"item-wrapper" + `${this.state.menuItemClass}`}
-        onMouseEnter={() => this.handleMouseEnter()}
-        onMouseLeave={() => this.handleMouseLeave()}
+        className={"item-wrapper"}
         >
             <div className="words-wrapper">
                 <div className="item-name">
