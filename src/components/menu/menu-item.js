@@ -10,7 +10,7 @@ export default class MenuItem extends Component {
   }
 
   handleMouseEnter() {
-    this.setState({ menuItemClass: "hovered-over" });
+    this.setState({ menuItemClass: ".hovered-over" });
   }
 
   handleMouseLeave() {
@@ -22,7 +22,7 @@ export default class MenuItem extends Component {
     const { id, description, name, descripción, price, image, calories } = this.props.item;
     return (
         <div
-        className={`item-wrapper ${this.state.menuItemClass}`}
+        className={"item-wrapper" + `${this.state.menuItemClass}`}
         onMouseEnter={() => this.handleMouseEnter()}
         onMouseLeave={() => this.handleMouseLeave()}
         >
