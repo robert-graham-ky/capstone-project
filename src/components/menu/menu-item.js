@@ -24,7 +24,7 @@ export default class MenuItem extends Component {
                     <h1>Calories: {calories}</h1>
                 </div>
                 <div className="description">
-                    {description}
+                    <p>{description}</p>
                 </div>
                 
             </div>

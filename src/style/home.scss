@@ -9,8 +9,12 @@
     flex-direction: column;
     align-items: center;
     h2{
-        font-weight: 900;
-        margin-bottom: 30px;
+        font-weight: 1000;
+        font-size: 3rem;
+        margin-bottom: 69px;
+        @media only screen and (max-width: 650px){
+            visibility: hidden;
+        }
     }
     .menu-items-wrapper{
         display: grid;
@@ -18,8 +22,10 @@
         justify-items: center;
         height: 100%;
         width: 100%;
-        @media only screen and (max-width: 600px){
+        margin-left: 30px;
+        @media only screen and (max-width: 650px){
             grid-template-columns: 1fr;
+            row-gap: 190px;
         }
         .item-wrapper{
             width: 100%;
@@ -31,6 +37,9 @@
             background-color: whitesmoke;
             font-size: 1.5rem;
             font-weight: 900;
+            @media only screen and (max-width: 650px){
+                background-color: wheat;
+            }
          
 
             /*.item-wrapper:hover .item-wrapper-content{
@@ -41,7 +50,7 @@
                 height: 100%;
                 position: relative;
                 text-align: center;
-                transition: transform 0.6s;
+                transition: transform 0.8s;
                 transform-style: preserve-3d;
                 &:hover{
                     transform: rotateY(180deg);
