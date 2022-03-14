@@ -4,7 +4,7 @@ import axios from "axios";
 import MenuForm from "../menu/menu-form";
 import MenuSidebarList from "../menu/menu-sidebar-list";
 
-export default class MenuEdit extends Component() {
+export default class MenuEdit extends Component {
   constructor() {
     super();
 

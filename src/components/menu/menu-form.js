@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 export default class MenuForm extends Component {
     constructor(props) {
