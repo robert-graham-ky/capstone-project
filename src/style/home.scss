@@ -22,10 +22,11 @@
         justify-items: center;
         height: 100%;
         width: 100%;
-        padding-left: 30px;
+        background-color: whitesmoke;
         @media only screen and (max-width: 650px){
             grid-template-columns: 1fr;
-            row-gap: 340px;
+            row-gap: 280px;
+            background-color: wheat;
         }
         .item-wrapper{
             width: 100%;
@@ -34,12 +35,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            background-color: whitesmoke;
+            
             font-size: 1.5rem;
             font-weight: 900;
-            @media only screen and (max-width: 650px){
-                background-color: wheat;
-            }
          
 
             /*.item-wrapper:hover .item-wrapper-content{

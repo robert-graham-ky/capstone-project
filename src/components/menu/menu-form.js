@@ -73,31 +73,24 @@ export default class MenuForm extends Component {
          "descripción": "prototype",
          "image": this.state.image,
          "calories": this.state.calories};
-         axios
-            .get("https://robertgrahamky.pythonanywhere.com/items")
-            .then(response => {
-                const tempId = response.data.length;
-                const myUrl = this.state.apiUrl+tempId;
-                axios
-                    .put(
-                      /*"https://rtg-flask-api.herokuapp.com/item/"*/ myUrl, payload
-                    )
-                    .then(response => {
-                        this.setState({
-                          name: "",
-                          description: "",
-                          price: "",
-                          image: "",
-                          calories: ""
-                        });
-                    })
-                    .catch(error => {
-                        console.log("menu form handleSubmit error", error);
-                    });
-            })
-            .catch(error => {
-                console.log("menu form handleSubmit error", error);
+        const tempId = this.props.menu.length;
+        const myUrl = this.state.apiUrl+tempId;
+        axios
+          .put(
+            /*"https://rtg-flask-api.herokuapp.com/item/"*/ myUrl, payload
+          )
+          .then(response => {
+            this.setState({
+              name: "",
+                description: "",
+                price: "",
+                image: "",
+                calories: ""
             });
+          })
+          .catch(error => {
+            console.log("menu form handleSubmit error", error);
+          });
       event.preventDefault();
     }
   

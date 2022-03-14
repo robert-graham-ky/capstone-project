@@ -18,13 +18,14 @@ export default class MenuItem extends Component {
                     {name}
                 </div>
                 <div className="price">
-                    <h1>${price}</h1>
+                    ${price}
                 </div>
-                <div className="calories">
-                    <h1>Calories: {calories}</h1>
-                </div>
+                
                 <div className="description">
                     <p>{description}</p>
+                </div>
+                <div className="calories">
+                    Calories: {calories}
                 </div>
                 
             </div>
