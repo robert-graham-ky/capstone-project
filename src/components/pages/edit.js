@@ -30,7 +30,7 @@ export default class MenuEdit extends Component {
       )
       .then(response => {
         this.setState({
-          menuItems: response.data.portfolio_items
+          menuItems: response.data
         });
       })
       .catch(error => {

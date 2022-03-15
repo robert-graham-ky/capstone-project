@@ -1,8 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const MenuSidebarList = props => {
-    console.log(props.menu);
-  const menuList = props.menu?.map(menuItem => {
+  const menuList = props.menu.map(menuItem => {
     return (
       <div key={menuItem.id} className="menu-item-deleter">
         <div className="menu-image-wrapper">
