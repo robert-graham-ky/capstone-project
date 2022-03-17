@@ -1,14 +1,20 @@
 .edit-wrapper{
     height: 100%;
-    h1{
-        font-size: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .add-wrapper{
+      margin-left: 40px;
+      h1{
+        font-size: 3.9rem;
         margin-bottom: 25px;
-    }
-    .item-form-wrapper{
+      }
+      .item-form-wrapper{
         display: grid;
         grid-gap: 21px;
         grid-template-columns: 1fr;
-        padding: 42px;
+        padding-right: 42px;
+        font-size: 3rem;
         input, textarea {
             font-family: "Montserrat", sans-serif;
             color: darkblue;
@@ -31,7 +37,7 @@
         textarea{
             border: 1px solid darkblue;
             background-color: transparent;
-            font-size: 1rem;
+            font-size: 2.5rem;
             height: 100px;
             outline: none;
             padding: 10px;
@@ -57,5 +63,36 @@
               background-color: black;
             }
         }
+      }
+    
+    }
+    .delete-wrapper{
+      .menu-sidebar-list-wrapper{
+        width: 300px;
+        .menu-item-deleter{
+          .menu-image-wrapper{
+            img{
+              width: 100%;
+            }
+          }
+          .sidebar-text-wrapper{
+            font-size: 2rem;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .icon-wrapper{
+              .trash-icon{
+                font-size: 30px;
+                cursor: pointer;
+                color: darkblue;
+                transition: all 0.5s ease-in-out;
+                &:hover{
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 }

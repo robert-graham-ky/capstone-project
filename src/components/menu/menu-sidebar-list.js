@@ -8,7 +8,7 @@ const MenuSidebarList = props => {
           <img src={menuItem.image} />
         </div>
         <div className="sidebar-text-wrapper">
-            <h1 className="sidebar-title">{menuItem.name}</h1>
+            <h2 className="sidebar-title">{menuItem.name}</h2>
             <div className="icon-wrapper">
                 <a className="trash-icon" onClick={() => props.handleDeleteClick(menuItem)}>
                     <FontAwesomeIcon icon="trash"></FontAwesomeIcon>
