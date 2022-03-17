@@ -40,8 +40,8 @@ export default class MenuEdit extends Component {
   handleDeleteClick(menuItem) {
     axios
       .delete(
-        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}`,
-        { withCredentials: true }
+        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}`/*,
+        { withCredentials: true }*/
       )
       .then(response => {
         this.setState({
