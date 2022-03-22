@@ -41,7 +41,7 @@ export default class MenuEdit extends Component {
   handleDeleteClick(menuItem) {
     axios
       .delete(
-        `https://robertgrahamky.pythonanywhere.com/item/${menuItems.length}`/*,
+        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}`/*,
         { withCredentials: true }*/
       )
       .then(response => {
@@ -58,6 +58,7 @@ export default class MenuEdit extends Component {
       });
   }
   handleSubmit(payload) {
+    console.log(payload);
     axios
       .put(
         "https://robertgrahamky.pythonanywhere.com/items"/*${menuItems.length}`*/, payload
@@ -66,7 +67,7 @@ export default class MenuEdit extends Component {
         }*/
       )
       .then(response => {
-        console.log(response);
+        console.log(response.data);
         /*this.setState({
           menuItems: menuItems.concat
         });*/
