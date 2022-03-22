@@ -59,6 +59,7 @@ export default class MenuEdit extends Component {
   }
   handleSubmit(payload) {
     console.log(payload);
+    debugger;
     axios
       .put(
         "https://robertgrahamky.pythonanywhere.com/items"/*${menuItems.length}`*/, payload
