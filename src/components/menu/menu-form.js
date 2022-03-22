@@ -16,7 +16,7 @@ export default class MenuForm extends Component {
       };
   
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmitted = this.handleSubmitted.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
       this.componentConfig = this.componentConfig.bind(this);
       this.djsConfig = this.djsConfig.bind(this);
      // this.handleImageDrop = this.handleImageDrop.bind(this);
@@ -63,7 +63,7 @@ export default class MenuForm extends Component {
       });
     }
   
-    handleSubmitted(event) {
+    handleSubmit(event) {
         const payload = 
         {"name": this.state.name,
          "description": this.state.description, 
@@ -85,7 +85,7 @@ export default class MenuForm extends Component {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmitted} className="item-form-wrapper">
+        <form onSubmit={this.handleSubmit} className="item-form-wrapper">
           <div className="two-column">
             <input
               type="text"
