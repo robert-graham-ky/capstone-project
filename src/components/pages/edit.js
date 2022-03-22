@@ -16,6 +16,7 @@ export default class MenuEdit extends Component {
     //this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     //this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     //this.handleEditClick = this.handleEditClick.bind(this);
     //this.clearMenuToEdit = this.clearMenuToEdit.bind(this);
   }
@@ -23,7 +24,7 @@ export default class MenuEdit extends Component {
   getMenuItems() {
     axios
       .get(
-        "https://robertgrahamky.pythonanywhere.com/items",
+        "https://robertgrahamky.pythonanywhere.com/items"
         /*{
           withCredentials: true
         }*/
@@ -56,6 +57,24 @@ export default class MenuEdit extends Component {
         console.log("handleDeleteClick error", error);
       });
   }
+  handleSubmit(payload) {
+    axios
+      .put(
+        `https://robertgrahamky.pythonanywhere.com/items`, payload
+        /*{
+          withCredentials: true
+        }*/
+      )
+      .then(response => {
+        this.setState({
+          menuItems: response.data
+        });
+      })
+      .catch(error => {
+        console.log("error in getMenuItems", error);
+      });
+    this.getMenuItems();
+  }
 
   componentDidMount() {
     this.getMenuItems();
@@ -67,6 +86,7 @@ export default class MenuEdit extends Component {
         <div className="add-wrapper">
           <h1>Add a menu item</h1>
           <MenuForm
+            handleSubmit={this.handleSubmit}
             menu={this.state.menuItems}
           />
         </div>

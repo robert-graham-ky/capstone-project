@@ -16,7 +16,7 @@ export default class MenuForm extends Component {
       };
   
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmitted = this.handleSubmitted.bind(this);
       this.componentConfig = this.componentConfig.bind(this);
       this.djsConfig = this.djsConfig.bind(this);
      // this.handleImageDrop = this.handleImageDrop.bind(this);
@@ -63,7 +63,7 @@ export default class MenuForm extends Component {
       });
     }
   
-    handleSubmit(event) {
+    handleSubmitted(event) {
         const payload = 
         {"name": this.state.name,
          "description": this.state.description, 
@@ -71,30 +71,19 @@ export default class MenuForm extends Component {
          "descripción": "prototype",
          "image": this.state.image,
          "calories": this.state.calories};
-        const tempId = this.props.menu.length;
-        const myUrl = this.state.apiUrl+tempId;
-        axios
-          .put(
-            /*"https://rtg-flask-api.herokuapp.com/item/"*/ myUrl, payload
-          )
-          .then(response => {
-            this.setState({
-              name: "",
-                description: "",
-                price: "",
-                image: "",
-                calories: ""
-            });
-          })
-          .catch(error => {
-            console.log("menu form handleSubmit error", error);
-          });
-      event.preventDefault();
+        props.handleSubmit(payload);
+        this.setState({
+          name: "",
+          description: "",
+          price: "",
+          image: "",
+          calories: ""
+        });
     }
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit} className="item-form-wrapper">
+        <form onSubmit={this.handleSubmitted} className="item-form-wrapper">
           <div className="two-column">
             <input
               type="text"
