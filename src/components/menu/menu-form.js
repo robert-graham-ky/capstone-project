@@ -71,7 +71,7 @@ export default class MenuForm extends Component {
          "descripción": "prototype",
          "image": this.state.image,
          "calories": this.state.calories};
-        props.handleSubmit(payload);
+        this.props.handleSubmit(payload);
         this.setState({
           name: "",
           description: "",

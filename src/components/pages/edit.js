@@ -60,18 +60,19 @@ export default class MenuEdit extends Component {
   handleSubmit(payload) {
     axios
       .put(
-        `https://robertgrahamky.pythonanywhere.com/items`, payload
+        `https://robertgrahamky.pythonanywhere.com/item/${menuItems.length}`, payload
         /*{
           withCredentials: true
         }*/
       )
       .then(response => {
-        this.setState({
-          menuItems: response.data
-        });
+        console.log(response);
+        /*this.setState({
+          menuItems: menuItems.concat
+        });*/
       })
       .catch(error => {
-        console.log("error in getMenuItems", error);
+        console.log("error in handleSubmit", error);
       });
     this.getMenuItems();
   }
