@@ -16,6 +16,7 @@ export default class MenuEdit extends Component {
     //this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     //this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     //this.handleEditClick = this.handleEditClick.bind(this);
     //this.clearMenuToEdit = this.clearMenuToEdit.bind(this);
   }
@@ -60,6 +61,27 @@ export default class MenuEdit extends Component {
       .catch((error) => {
         console.log("handleDeleteClick error", error);
       });
+  }
+  handleSubmit(payload) {
+    console.log(payload);
+    debugger;
+    axios
+      .put(
+        "https://robertgrahamky.pythonanywhere.com/items"/*${menuItems.length}`*/, payload
+        /*{
+          withCredentials: true
+        }*/
+      )
+      .then(response => {
+        console.log(response.data);
+        /*this.setState({
+          menuItems: menuItems.concat
+        });*/
+      })
+      .catch(error => {
+        console.log("error in handleSubmit", error);
+      });
+    this.getMenuItems();
   }
 
   componentDidMount() {
