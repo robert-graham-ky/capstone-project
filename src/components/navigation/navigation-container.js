@@ -24,25 +24,22 @@ const NavigationComponent = (props) => {
           <div className="nav-text">11:30 AM to 8 PM</div>
         </div>
       </div>
-      {/*this next div breaks the code until I change the .scss files*/}
       <div className="center-wrapper">
         <div className="nav-link-wrapper">
-          {/*<NavLink exact to="/" activeClassName="nav-link-active">
-            Home
-            </NavLink>*/}
-          {dynamicLink("/", "Home")}
+          {
+            <NavLink
+              exact
+              to="/"
+              isActive={checkActive}
+              activeClassName="nav-link-active"
+            >
+              Home
+            </NavLink>
+          }
         </div>
-        <div className="nav-link-wrapper">
-          {/*<NavLink exact to="/about" activeClassName="nav-link-active">
-            About
-          </NavLink>*/}
-          {dynamicLink("/about", "About")}
-        </div>
+        <div className="nav-link-wrapper">{dynamicLink("/about", "About")}</div>
 
         <div className="nav-link-wrapper">
-          {/*<NavLink to="/edit" activeClassName="nav-link-active">
-            Edit Menu
-          </NavLink>*/}
           {dynamicLink("/edit", "Edit Menu")}
         </div>
       </div>
