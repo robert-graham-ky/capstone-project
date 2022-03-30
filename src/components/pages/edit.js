@@ -12,7 +12,7 @@ export default class MenuEdit extends Component {
       menuItems: []
     };
 
-    //this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
+    this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
     //this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     //this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
@@ -23,36 +23,41 @@ export default class MenuEdit extends Component {
   getMenuItems() {
     axios
       .get(
-        "https://robertgrahamky.pythonanywhere.com/items",
+        "https://robertgrahamky.pythonanywhere.com/items"
         /*{
           withCredentials: true
         }*/
       )
-      .then(response => {
+      .then((response) => {
         this.setState({
           menuItems: response.data
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("error in getMenuItems", error);
       });
+  }
+  handleNewFormSubmission(menuItem) {
+    this.setState({
+      menuItems: this.state.menuItems.concat([menuItem])
+    });
   }
   handleDeleteClick(menuItem) {
     axios
       .delete(
-        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}`/*,
+        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}` /*,
         { withCredentials: true }*/
       )
-      .then(response => {
+      .then((response) => {
         this.setState({
-          menuItems: this.state.menuItems.filter(item => {
+          menuItems: this.state.menuItems.filter((item) => {
             return item.id !== menuItem.id;
-          })
+          }),
         });
 
         return response.data;
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("handleDeleteClick error", error);
       });
   }
@@ -61,13 +66,14 @@ export default class MenuEdit extends Component {
     this.getMenuItems();
   }
 
-  render(){
+  render() {
     return (
-      <div className = "edit-wrapper">
+      <div className="edit-wrapper">
         <div className="add-wrapper">
           <h1>Add a menu item</h1>
-          <MenuForm
+          <MenuForm 
             menu={this.state.menuItems}
+            handleNewFormSubmission={this.handleNewFormSubmission}
           />
         </div>
         <div className="delete-wrapper">
