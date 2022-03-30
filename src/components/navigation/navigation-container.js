@@ -30,7 +30,7 @@ const NavigationComponent = (props) => {
             <NavLink
               exact
               to="/"
-              isActive={checkActive}
+              //isActive={checkActive}
               activeClassName="nav-link-active"
             >
               Home
