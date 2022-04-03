@@ -41,7 +41,7 @@ export default class MenuContainer extends Component {
     render() {
         return(
             <div className="outer-wrapper">
-                <h2>Menu</h2>
+                <div className="menu-header-wrapper"><h2>Menu</h2></div>
                 <div className="menu-items-wrapper">{this.menuItems()}</div>
             </div>
         )
