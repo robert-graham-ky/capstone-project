@@ -30,17 +30,28 @@ const NavigationComponent = (props) => {
             <NavLink
               exact
               to="/"
-              //isActive={checkActive}
               activeClassName="nav-link-active"
             >
               Home
             </NavLink>
           }
         </div>
-        <div className="nav-link-wrapper">{dynamicLink("/about", "About")}</div>
+        <div className="nav-link-wrapper">{<NavLink
+              exact
+              to="/about"
+              activeClassName="nav-link-active"
+            >
+              About
+            </NavLink>}</div>
 
         <div className="nav-link-wrapper">
-          {dynamicLink("/edit", "Edit Menu")}
+          {<NavLink
+              exact
+              to="/edit"
+              activeClassName="nav-link-active"
+            >
+              Edit Menu
+            </NavLink>}
         </div>
       </div>
       <div className="side-wrapper">

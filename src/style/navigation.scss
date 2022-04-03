@@ -1,16 +1,25 @@
 .nav-wrapper {
   height: 80px;
   margin-bottom: 40px;
+  padding: 40px;
   display: flex;
   justify-content: space-between;
+  width: 90%;
   .side-wrapper {
     display: flex;
     font-size: 30px;
     color: $text-color;
     align-items: center;
-    .nav-text-wrapper{
-        display: flex;
-        flex-direction: column;
+    .nav-icon-wrapper {
+      padding: 15px;
+    }
+    .nav-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      font-size: 2.5rem;
+    }
+    @media only screen and (max-width: 650px) {
+      visibility: hidden;
     }
   }
   .center-wrapper {
@@ -18,10 +27,13 @@
     justify-content: space-between;
     .nav-link-wrapper {
       height: 22px;
-      margin-right: 20px;
+      margin: auto 22px;
       text-transform: uppercase;
       font-size: 2.2rem;
-
+      @media only screen and (max-width: 650px) {
+        margin: auto 10px;
+        font-size: 1.8rem;
+      }
       a {
         transition: 0.5s ease-in-out;
         border-bottom: 1px solid transparent;
@@ -29,7 +41,7 @@
         text-decoration: none;
         &:hover {
           color: $active-text-color;
-          border-bottom: 1px solid $active-text-color;
+          //border-bottom: 1px solid $active-text-color;
         }
       }
 
@@ -42,5 +54,4 @@
       }
     }
   }
-
 }
