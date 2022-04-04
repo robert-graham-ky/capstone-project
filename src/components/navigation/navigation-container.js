@@ -50,7 +50,7 @@ const NavigationComponent = (props) => {
               to="/edit"
               activeClassName="nav-link-active"
             >
-              Edit Menu
+              Edit
             </NavLink>}
         </div>
       </div>

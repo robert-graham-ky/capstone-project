@@ -39,9 +39,9 @@ export default class About extends Component{
             </div>
         </div>
 
-        {/*<div className="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d12542.902899879642!2d-84.8843935679576!3d38.19304466892016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x884274bf010ec137%3A0x853daf2a03e08fb2!2sKentucky%20State%20Capitol%2C%20700%20Capital%20Ave%2C%20Frankfort%2C%20KY%2040601!3m2!1d38.1867528!2d-84.87529719999999!5e0!3m2!1sen!2sus!4v1648108582484!5m2!1sen!2sus" ></iframe>
-        </div>*/}
+        {<div className="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3136.001791844937!2d-84.87730398472405!3d38.18663247968658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884274bf073ae28d%3A0x104eaffebb58cd18!2s700%20Capital%20Ave%2C%20Frankfort%2C%20KY%2040601!5e0!3m2!1sen!2sus!4v1649049782128!5m2!1sen!2sus"></iframe> 
+        </div>}
         <div className="exterior-wrapper">
             <img src={Exterior}/>
         </div>
