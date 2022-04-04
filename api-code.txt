@@ -1,0 +1,122 @@
+
+from flask import Flask
+from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
+app = Flask(__name__)
+
+api = Api(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/robertgrahamky/mysite/database.db'
+db = SQLAlchemy(app)
+CORS(app)
+menu = []
+class MenuItemModel(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    descripción = db.Column(db.String(200), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    image = db.Column(db.String(), nullable=False)
+    calories = db.Column(db.String(20), nullable=False)
+
+
+def __repr__(self):
+    return f"MenuItem(id={id}, name={name}, description={description}, descripción={descripción}, price={price}, image={image})"
+
+
+
+
+
+
+menu_item_put_args = reqparse.RequestParser()
+menu_item_put_args.add_argument("name", type=str, help="Name of the menu item", required=True)
+menu_item_put_args.add_argument("description", type=str, help="Describe the item and options for it in English", required=True)
+menu_item_put_args.add_argument("descripción", type=str, help="Describe la opción del menú", required=True)
+menu_item_put_args.add_argument("price", type=float, help="price of the item", required=True)
+menu_item_put_args.add_argument("image", type=str, help="URL of the image", required=True)
+menu_item_put_args.add_argument("calories", type=str, help="Calories in the item", required=True)
+
+menu_item_update_args = reqparse.RequestParser()
+menu_item_update_args.add_argument("name", type=str, help="Name of the menu item")
+menu_item_update_args.add_argument("description", type=str, help="Describe the item and options for it in English")
+menu_item_update_args.add_argument("descripción", type=str, help="Describe la opción del menú")
+menu_item_update_args.add_argument("price", type=float, help="price of the item")
+menu_item_update_args.add_argument("image", type=str, help="URL of the item")
+menu_item_update_args.add_argument("calories", type=str, help="Calories in the item", required=True)
+
+resource_fields = {
+    'id': fields.Integer,
+    'name': fields.String,
+    'description': fields.String,
+    'descripción': fields.String,
+    'price': fields.Float,
+    'image': fields.String,
+    'calories': fields.String
+}
+
+class MenuItem(Resource):
+    @marshal_with(resource_fields)
+    def get(self, item_id):
+        result = MenuItemModel.query.filter_by(id=item_id).first()
+        if not result:
+            abort(404, message="id not found")
+        return result
+
+    #@marshal_with(resource_fields)
+    #def get():
+    #    result = MenuItemModel.query
+    @marshal_with(resource_fields)
+    def patch(self, item_id):
+        args = menu_item_update_args.parse_args()
+        result = MenuItemModel.query.filter_by(id=item_id).first()
+        if not result:
+            abort(404, message="id not found")
+        if 'name' in args:
+            result.name = args['name']
+        if 'price' in args:
+            result.price = args['price']
+        if 'image' in args:
+            result.image = args['image']
+        if 'description' in args:
+            result.description = args['description']
+        if 'descripción' in args:
+            result.descripción = args['descripción']
+        if 'calories' in args:
+            result.calories = args['calories']
+        db.session.add(result)
+        db.session.commit()
+        return result
+
+    @marshal_with(resource_fields)
+    def put(self, item_id):
+        args = menu_item_put_args.parse_args()
+        result = MenuItemModel.query.filter_by(id=item_id).first()
+        if result:
+            abort(409, message="id taken")
+        item = MenuItemModel(id=item_id, name=args['name'], description=args['description'], descripción=args['descripción'], price=args['price'], image=args['image'], calories=args['calories'])
+        db.session.add(item)
+        db.session.commit()
+        return item, 201
+
+    #do I need marshal_with here?
+    @marshal_with(resource_fields)
+    def delete(self, item_id):
+        #abort_if_item_id_doesnt_exist(item_id)
+        result = MenuItemModel.query.filter_by(id=item_id).first()
+        db.session.delete(result)
+        db.session.commit()
+        return '', 204
+
+    #def abort_if_item_id_doesnt_exist(item_id):
+
+class MenuItemAll(Resource):
+    @marshal_with(resource_fields)
+    def get(self):
+        all=MenuItemModel.query.all()
+        return all
+
+api.add_resource(MenuItem, "/item/<int:item_id>")
+api.add_resource(MenuItemAll, "/items")
+#api.add_resource(MenuItem[], "/items")
+if __name__ == "__main__":
+    app.run(debug=True)
