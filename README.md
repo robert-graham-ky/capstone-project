@@ -1,5 +1,1 @@
-# React/Redux/Router Starter Project
-
-> Provided for the students of the [Bottega Code School](https://bottega.tech/)
-
-*Fork from [es6-webpack2-starter](https://github.com/micooz/es6-webpack2-starter)*
+This is the front end of a restaurant-style react application, hosted at https://rtg-capstone.herokuapp.com/. The backend is built with Flask Sqlite and is hosted on pythonanywhere. I created a github repo of it as well
