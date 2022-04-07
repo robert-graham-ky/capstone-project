@@ -7,13 +7,10 @@ export default class About extends Component {
     return (
       <div className="about-page-wrapper">
         {/*
-          interior picture text description
-          picture of people text description
-          embedded google map exterior picture
-          
-          
-          
-          contact */}
+          interior picture/ text description
+          picture of people / text description
+          embedded google map/ exterior picture
+          contact info*/}
         <div className="squares-wrapper">
           <div className="squares">
             <div className="square">
