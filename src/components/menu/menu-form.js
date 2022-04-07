@@ -18,7 +18,7 @@ export default class MenuForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentConfig = this.componentConfig.bind(this);
-    this.djsConfig = this.djsConfig.bind(this);
+    this.findNextSpot = this.findNextSpot.bind(this);
     // this.handleImageDrop = this.handleImageDrop.bind(this);
 
     //this.deleteImage = this.deleteImage.bind(this);
@@ -47,11 +47,9 @@ export default class MenuForm extends Component {
       };
     }*/
 
-  djsConfig() {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1,
-    };
+  findNextSpot() {
+    const lastItem = this.props.menu.slice(-1).pop();
+    return lastItem.id+1;
   }
 
   handleChange(event) {
@@ -69,10 +67,10 @@ export default class MenuForm extends Component {
       image: this.state.image,
       calories: this.state.calories,
     };
-    const tempId = this.props.menu.length;
+    const tempId = this.findNextSpot();
     const myUrl = this.state.apiUrl + tempId;
     axios
-      .put("https://robertgrahamky.pythonanywhere.com/items", payload)
+      .put(myUrl, payload)
       .then((response) => {
         this.props.handleNewFormSubmission(response);
         this.setState({
