@@ -72,7 +72,7 @@ export default class MenuForm extends Component {
     const tempId = this.props.menu.length;
     const myUrl = this.state.apiUrl + tempId;
     axios
-      .put(/*"https://rtg-flask-api.herokuapp.com/item/"*/ myUrl, payload)
+      .put("https://rtg-flask-api.herokuapp.com/items", payload)
       .then((response) => {
         this.props.handleNewFormSubmission(response);
         this.setState({
