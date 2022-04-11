@@ -4,6 +4,7 @@ import Edit from "./pages/edit";
 import About from "./pages/about";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavigationContainer from "./navigation/navigation-container";
+import Footer from "./footer/footer";
 import Icons from "../helpers/icons";
 
 export default class App extends Component {
@@ -22,6 +23,7 @@ export default class App extends Component {
             <Route path="/edit" component={Edit} />
             <Route path="/about" component={About} />
           </Switch>
+          <Footer />
         </Router>
       </div>
     );

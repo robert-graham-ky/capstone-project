@@ -1,0 +1,27 @@
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #11122b;
+  color: #cbcbcb;
+  font-family: "Ubuntu Condensed", sans-serif;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 42px;
+  margin-top: -4px;
+  .footer-contact-wrapper {
+    span {
+      margin-left: 10px;
+      margin-right: 10px;
+      font-size: 1em;
+      letter-spacing: 2px;
+    }
+    .phone-wrapper {
+      font-size: 0.79 em;
+      color: $main-color;
+      text-transform: uppercase;
+    }
+  }
+  .footer-nav-wrapper {
+    display: flex;
+  }
+}
