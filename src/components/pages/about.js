@@ -63,9 +63,6 @@ export default class About extends Component {
           ></iframe>
            
         </div>
-        <div className="exterior-wrapper">
-          <img src={Exterior} />
-        </div>
       </div>
     );
   }

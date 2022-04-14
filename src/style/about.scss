@@ -7,9 +7,11 @@
     .squares {
       width: 1000px;
       margin-top: -4px;
+      @media only screen and (max-width: 650px) {
+        width: 90%;
+        grid-template-columns: 1fr !important;
+      }
       .square {
-        width: 1000px;
-        margin-top: -4px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         @media only screen and (max-width: 650px) {
