@@ -1,67 +1,72 @@
 .about-page-wrapper {
   width: 100%;
-  .squares-wrapper {
-    display: flex;
-    justify-content: center;
-    background-color: $main-color;
-    .squares {
-      width: 1000px;
-      margin-top: -4px;
-      @media only screen and (max-width: 650px) {
-        width: 90%;
-        grid-template-columns: 1fr !important;
-      }
-      .square {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+  padding-bottom: 180px;
+  .outer {
+    width: 100%;
+    padding-bottom: 180px;
+    .squares-wrapper {
+      display: flex;
+      justify-content: center;
+      background-color: $main-color;
+      .squares {
+        width: 1000px;
+        margin-top: -4px;
         @media only screen and (max-width: 650px) {
+          width: 90%;
           grid-template-columns: 1fr !important;
         }
-        .img-wrapper {
+        .square {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           @media only screen and (max-width: 650px) {
-            order: 2;
+            grid-template-columns: 1fr !important;
           }
-          img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
+          .img-wrapper {
+            @media only screen and (max-width: 650px) {
+              order: 2;
+            }
+            img {
+              width: 100%;
+              height: 500px;
+              object-fit: cover;
+            }
           }
-        }
-        .square-text {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          padding: 42px;
-          @media only screen and (max-width: 650px) {
-            order: 1;
-          }
-          h1 {
-            color: $active-text-color;
-            font-size: 2em;
-            margin-block-start: 0.67em;
-            margin-block-end: 0.67em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            font-weight: bold;
-          }
-          p {
-            color: $active-text-color;
-            display: block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
+          .square-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 42px;
+            @media only screen and (max-width: 650px) {
+              order: 1;
+            }
+            h1 {
+              color: $active-text-color;
+              font-size: 2em;
+              margin-block-start: 0.67em;
+              margin-block-end: 0.67em;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              font-weight: bold;
+            }
+            p {
+              color: $active-text-color;
+              display: block;
+              margin-block-start: 1em;
+              margin-block-end: 1em;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+            }
           }
         }
       }
     }
-  }
-  .map {
-    iframe {
-      width: 100%;
-      height: 450px;
-      border: 0px;
+    .map {
+      iframe {
+        width: 100%;
+        height: 450px;
+        border: 0px;
+      }
     }
   }
 }
