@@ -48,8 +48,13 @@ export default class MenuForm extends Component {
     }*/
 
   findNextSpot() {
-    const lastItem = this.props.menu.slice(-1).pop();
-    return lastItem.id+1;
+    if (this.props.menu.length > 0) {
+      const lastItem = this.props.menu.slice(-1).pop();
+      return lastItem.id + 1;
+    }
+    else {
+      return 0;
+    }
   }
 
   handleChange(event) {
