@@ -34,5 +34,19 @@
   .footer-nav-wrapper {
     display: flex;
     width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    font-size: 18px;
+    .f-nav-link-wrapper a{
+      font-family: "Ubuntu Condensed", sans-serif;
+      color: $text-color;
+      text-decoration: none;
+      transition: 0.5s;
+      &:hover {
+        color: $main-color;
+        letter-spacing: 2px;
+      }
+    }
   }
 }
