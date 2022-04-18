@@ -13,20 +13,13 @@ export default class MenuEdit extends Component {
     };
 
     this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
-    //this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
-    //this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    //this.handleEditClick = this.handleEditClick.bind(this);
-    //this.clearMenuToEdit = this.clearMenuToEdit.bind(this);
   }
 
   getMenuItems() {
     axios
       .get(
         "https://robertgrahamky.pythonanywhere.com/items"
-        /*{
-          withCredentials: true
-        }*/
       )
       .then((response) => {
         this.setState({
@@ -45,8 +38,7 @@ export default class MenuEdit extends Component {
   handleDeleteClick(menuItem) {
     axios
       .delete(
-        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}` /*,
-        { withCredentials: true }*/
+        `https://robertgrahamky.pythonanywhere.com/item/${menuItem.id}`
       )
       .then((response) => {
         this.setState({

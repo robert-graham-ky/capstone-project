@@ -19,11 +19,6 @@ export default class MenuForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentConfig = this.componentConfig.bind(this);
     this.findNextSpot = this.findNextSpot.bind(this);
-    // this.handleImageDrop = this.handleImageDrop.bind(this);
-
-    //this.deleteImage = this.deleteImage.bind(this);
-
-    // this.imageRef = React.createRef();
   }
 
   componentConfig() {
@@ -34,18 +29,6 @@ export default class MenuForm extends Component {
     };
   }
 
-  /*handleImageDrop() {
-      return {
-      
-        addedfile: file => 
-        //select the file path
-        //use img to base64 with the file path as parameter
-        //put the string in the state
-        //it gets uploaded to the api
-        //later I'll pull that string and convert from base64 to image
-        this.setState({image: theImg})
-      };
-    }*/
 
   findNextSpot() {
     if (this.props.menu.length > 0) {
