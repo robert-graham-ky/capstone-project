@@ -1,5 +1,8 @@
 #menu-footer {
   margin-top: -27px;
+  @media only screen and (max-width: 650px) {
+    margin-top: 0px;
+  }
 }
 #about-footer {
   margin-top: -23px;
