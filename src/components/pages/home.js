@@ -8,7 +8,7 @@ export default function () {
       <div className="outer">
         <MenuContainer />
       </div>
-      <div className="footer menu-footer">
+      <div id="menu-footer">
         <Footer />
       </div>
     </div>

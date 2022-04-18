@@ -5,6 +5,9 @@
   display: flex;
   justify-content: space-between;
   width: 90%;
+  @media only screen and (max-width: 650px) {
+    justify-content: flex-end;
+  }
   .side-wrapper {
     display: flex;
     font-size: 30px;

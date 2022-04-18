@@ -59,9 +59,9 @@ export default class About extends Component {
             ></iframe>
              
           </div>
-          <div className="footer about-footer">
-            <Footer />
-          </div>
+        </div>
+        <div className="footer" id="about-footer">
+          <Footer />
         </div>
       </div>
     );
