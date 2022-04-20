@@ -68,6 +68,12 @@
             position: absolute;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            .img {
+              width: 200px;
+              height: 200px;
+              min-width: 200px;
+              min-height: 200px;
+            }
           }
           .words-wrapper {
             margin-left: 20px;
