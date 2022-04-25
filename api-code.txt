@@ -62,9 +62,7 @@ class MenuItem(Resource):
             abort(404, message="id not found")
         return result
 
-    #@marshal_with(resource_fields)
-    #def get():
-    #    result = MenuItemModel.query
+
     @marshal_with(resource_fields)
     def patch(self, item_id):
         args = menu_item_update_args.parse_args()
@@ -98,7 +96,6 @@ class MenuItem(Resource):
         db.session.commit()
         return item, 201
 
-    #do I need marshal_with here?
     @marshal_with(resource_fields)
     def delete(self, item_id):
         #abort_if_item_id_doesnt_exist(item_id)
@@ -107,7 +104,6 @@ class MenuItem(Resource):
         db.session.commit()
         return '', 204
 
-    #def abort_if_item_id_doesnt_exist(item_id):
 
 class MenuItemAll(Resource):
     @marshal_with(resource_fields)
@@ -117,6 +113,5 @@ class MenuItemAll(Resource):
 
 api.add_resource(MenuItem, "/item/<int:item_id>")
 api.add_resource(MenuItemAll, "/items")
-#api.add_resource(MenuItem[], "/items")
 if __name__ == "__main__":
     app.run(debug=True)
