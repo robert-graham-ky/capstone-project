@@ -14,6 +14,7 @@ export default class MenuEdit extends Component {
 
     this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.getMenuItems = this.getMenuItems.bind(this);
   }
 
   getMenuItems() {
