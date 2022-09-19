@@ -4,7 +4,6 @@ import axios from "axios";
 export default class MenuForm extends Component {
   constructor(props) {
     super(props);
-    console.log(menu);
     this.state = {
       name: "",
       description: "",
@@ -31,8 +30,9 @@ export default class MenuForm extends Component {
 
 
   findNextSpot() {
+    console.log(this.props.menu);
     if (this.props.menu.length > 0) {
-      console.log(this.props.menu);
+      
       const lastItem = this.props.menu.slice(-1);
       return lastItem.id + 1;
     }
