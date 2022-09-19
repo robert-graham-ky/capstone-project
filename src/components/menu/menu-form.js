@@ -29,11 +29,10 @@ export default class MenuForm extends Component {
   }
 
 
-  findNextSpot() {
-    console.log(this.props.menu);
-    if (this.props.menu.length > 0) {
+  findNextSpot(menu) {
+    if (menu.length > 0) {
       
-      const lastItem = this.props.menu.slice(-1);
+      const lastItem = menu.slice(-1);
       return lastItem.id + 1;
     }
     else {
@@ -56,7 +55,7 @@ export default class MenuForm extends Component {
       image: this.state.image,
       calories: this.state.calories,
     };
-    const tempId = this.findNextSpot();
+    const tempId = this.findNextSpot(this.props.menu);
     const myUrl = this.state.apiUrl + tempId;
     axios
       .put(myUrl, payload)
