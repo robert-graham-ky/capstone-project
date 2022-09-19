@@ -12,7 +12,7 @@ export default class MenuForm extends Component {
       image: "",
       calories: "",
       apiUrl: "https://robertgrahamky.pythonanywhere.com/item/",
-      apiAction: "put",
+      apiAction: "put"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,7 +32,7 @@ export default class MenuForm extends Component {
 
   findNextSpot() {
     if (this.props.menu.length > 0) {
-      const lastItem = this.props.menu.slice(-1).pop();
+      const lastItem = this.props.menu.slice(-1);
       return lastItem.id + 1;
     }
     else {
