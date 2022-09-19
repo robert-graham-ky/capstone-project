@@ -56,7 +56,7 @@ export default class MenuForm extends Component {
       calories: this.state.calories,
     };
     console.log(this.props.menu+ "MENU");
-    let tempId = this.findNextSpot(this.props.menu);
+    let tempId = this.props.menu.slice(-1).id;
     const myUrl = this.state.apiUrl + tempId;
     axios
       .put(myUrl, payload)
