@@ -55,13 +55,13 @@ export default class MenuForm extends Component {
       image: this.state.image,
       calories: this.state.calories,
     };
-    console.log(this.props.menu.slice(-1)+ "MENU"); //menu not null
-    let tempId = this.props.menu.slice(-1)[0].id+1; //this is undefined
-    const myUrl = this.state.apiUrl + tempId;
+    console.log(this.props.menu.slice(-1)+ "MENU"); 
+    let tempId = this.props.menu.slice(-1)[0].id+1; 
+    let myUrl = this.state.apiUrl + tempId;
     axios
       .put(myUrl, payload)
       .then((response) => {
-        this.props.handleNewFormSubmission(response);
+        this.props.handleNewFormSubmission(response.data); // bug comes from here
         this.setState({
           name: "",
           description: "",
